@@ -1,6 +1,7 @@
 {
   "name": "geocode",
-  "base": "PersistedModel",
+  "plural": "geocode",
+  "base": "Model",
   "idInjection": true,
   "options": {
     "validateUpsert": true

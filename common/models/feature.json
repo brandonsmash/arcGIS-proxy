@@ -1,6 +1,6 @@
 {
   "name": "feature",
-  "base": "PersistedModel",
+  "base": "Model",
   "idInjection": true,
   "options": {
     "validateUpsert": true
