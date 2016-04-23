@@ -1,3 +1,5 @@
+import unirest from 'unirest';
+
 const hostUrl = 'http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/'
 
 export default class Gis {
