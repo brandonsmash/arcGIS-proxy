@@ -31,5 +31,13 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "geocode": {
+    "dataSource": "db",
+    "public": true
+  },
+  "feature": {
+    "dataSource": "db",
+    "public": true
   }
 }
