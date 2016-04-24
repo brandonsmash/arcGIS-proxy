@@ -4,7 +4,7 @@
   "main": "server/server.js",
   "scripts": {
     "start": "node .",
-    "watch": "nodemon --exec babel-node ./server/server",
+    "watch": ". ./env/test.env && nodemon --exec babel-node ./server/server",
     "pretest": "jshint .",
     "posttest": "nsp check"
   },

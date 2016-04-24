@@ -9,30 +9,30 @@ export default class Gis {
     }
 
     findIt(query) {
-
      return new Promise((resolve, reject) => {
 
         const searchType = this._getApi(query);
-        const locationQuery = {"text": query.street, "f": "pjson", outFields: query.outFields}
+        const locationQuery = {"text": query.street, "f": "pjson", outFields: query.outFields, maxLocations: query.maxLocations }
 
-        unirest
-         .post(searchType)
-         .headers({'Accept': 'application/x-www.form-urlencoded'})
-         .send(locationQuery)
-         .end((response) => {
-            resolve(JSON.parse(response.body))
-         });
+        this._sendRequest(searchType, locationQuery)
+        .end(function(payload) {
+            resolve(JSON.parse(payload.body));
+        });
      
      });
-        
     }
 
     _getApi(query) {
      const fullQuery = `${hostUrl}${this.queryType}`;
-
-     console.log(fullQuery);
-
      return fullQuery;
+    }
+
+    _sendRequest(searchQuery, config) {
+     return unirest
+     .post(searchQuery)
+     .headers({'Accept': 'application/x-www.form-urlencoded'})
+     .send(config);
+
     }
 
 }

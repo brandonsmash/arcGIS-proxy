@@ -10,8 +10,8 @@
     "street": {
       "type": "string"
     },
-    "city": {
-      "type": "string"
+    "maxLocations": {
+      "type": "number"
     },
     "outFields": {
       "type": "string"
