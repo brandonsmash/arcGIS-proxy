@@ -12,6 +12,9 @@
     },
     "city": {
       "type": "string"
+    },
+    "outFields": {
+      "type": "string"
     }
   },
   "validations": [],

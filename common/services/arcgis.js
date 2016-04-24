@@ -1,6 +1,6 @@
 import unirest from 'unirest';
 
-const hostUrl = 'http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/'
+const hostUrl = process.env.GIS_HOST;
 
 export default class Gis {
 
@@ -11,14 +11,27 @@ export default class Gis {
     findIt(query) {
 
      return new Promise((resolve, reject) => {
-      const path = this.getApi(query);
-      resolve('query');
+
+        const searchType = this._getApi(query);
+        const locationQuery = {"text": query.street, "f": "pjson", outFields: query.outFields}
+
+        unirest
+         .post(searchType)
+         .headers({'Accept': 'application/x-www.form-urlencoded'})
+         .send(locationQuery)
+         .end((response) => {
+            resolve(JSON.parse(response.body))
+         });
+     
      });
         
     }
 
-    getApi(query) {
+    _getApi(query) {
      const fullQuery = `${hostUrl}${this.queryType}`;
+
+     console.log(fullQuery);
+
      return fullQuery;
     }
 

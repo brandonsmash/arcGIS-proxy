@@ -9,9 +9,10 @@ module.exports = (Geocode) => {
       const location = new Gis('find');
 
       location
-      .findIt(data);
-
-      resolve(data);
+      .findIt(data)
+      .then(function(results) {
+        resolve(results);
+      });
 
     });
   }
