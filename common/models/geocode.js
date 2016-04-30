@@ -10,18 +10,38 @@ module.exports = (Geocode) => {
 
       location
       .findIt(data)
-      .then(function(results) {
+      .then((results) => {
         resolve(results);
       });
 
     });
   }
 
-  // expose remote method
+  Geocode.suggest = (data) => {
+    return new Promise((resolve, reject) => {
+
+      const userSearch = new Gis('suggest');
+
+      userSearch
+      .findIt(data)
+      .then((suggestions) => {
+        resolve(suggestions);
+      });
+
+    });
+  }
+
+  // expose remote methods
   Geocode.remoteMethod('locate', {
     accepts: { arg: 'data', type: 'object', http: { source: 'body' } },
     returns: { arg: 'data', type: 'object', root: true },
     http: { path: '/locate', verb: 'post' }
+  });
+
+  Geocode.remoteMethod('suggest', {
+    accepts: { arg: 'data', type: 'object', http: { source: 'body' } },
+    returns: { arg: 'data', type: 'object', root: true },
+    http: { path: '/suggest', verb: 'post' }
   });
 
 };
