@@ -8,11 +8,13 @@ export default class Gis {
      this.queryType = queryType;
     }
 
-    findIt(query) {
+    encodeLocation(query) {
      return new Promise((resolve, reject) => {
 
-        const searchType = this._getApi(query);
+        const searchPath = this._getApi(query);
         const locationQuery = {"text": query.street, "f": "pjson", outFields: query.outFields, maxLocations: query.maxLocations }
+
+        console.log(locationQuery.maxLocations);
 
         this._sendRequest(searchType, locationQuery)
         .end(function(payload) {
