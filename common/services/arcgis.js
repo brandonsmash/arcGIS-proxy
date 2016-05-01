@@ -14,9 +14,7 @@ export default class Gis {
         const searchPath = this._getApi(query);
         const locationQuery = {"text": query.street, "f": "pjson", outFields: query.outFields, maxLocations: query.maxLocations }
 
-        console.log(locationQuery.maxLocations);
-
-        this._sendRequest(searchType, locationQuery)
+        this._sendRequest(searchPath, locationQuery)
         .end(function(payload) {
             resolve(JSON.parse(payload.body));
         });

@@ -23,7 +23,7 @@ module.exports = (Geocode) => {
       const userSearch = new Gis('suggest');
 
       userSearch
-      .findIt(data)
+      .encodeLocation(data)
       .then((suggestions) => {
         resolve(suggestions);
       });
