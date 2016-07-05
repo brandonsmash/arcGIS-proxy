@@ -3,7 +3,7 @@ This api intends to simplify querying arcGIS services. The models in the API rep
 # Documentation
 
 ```
-(https://developers.arcgis.com/rest/geocode/api-reference/overview-world-geocoding-service.htm)[Arc GIS documentation]
+[Arc GIS documentation](https://developers.arcgis.com/rest/geocode/api-reference/overview-world-geocoding-service.htm)
 ```
 
 # API
