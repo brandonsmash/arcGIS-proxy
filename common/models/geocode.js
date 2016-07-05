@@ -6,6 +6,8 @@ module.exports = (Geocode) => {
   Geocode.locate = (data) => {
     return new Promise((resolve, reject) => {
 
+      console.log('Request coming from', data);
+
       const location = new Gis('find');
 
       location

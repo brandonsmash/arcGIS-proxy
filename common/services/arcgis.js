@@ -12,7 +12,15 @@ export default class Gis {
      return new Promise((resolve, reject) => {
 
         const searchPath = this._getApi(query);
-        const locationQuery = {"text": query.street, "f": "pjson", outFields: query.outFields, maxLocations: query.maxLocations }
+        const locationQuery = {
+            "text": query.street, 
+            "f": "pjson", 
+            outFields: query.outFields || '*', 
+            maxLocations: query.maxLocations || 20
+        }
+
+        console.log('Search Path', searchPath);
+        console.log('Location Query', locationQuery);
 
         this._sendRequest(searchPath, locationQuery)
         .end(function(payload) {
