@@ -5,11 +5,9 @@ module.exports = (Geocode) => {
   // define remote method
   Geocode.locate = (data) => {
     return new Promise((resolve, reject) => {
-
-      console.log('Request coming from', data);
-
+    
       const location = new Gis('find');
-
+      
       location
       .encodeLocation(data)
       .then(function(geoData) {
