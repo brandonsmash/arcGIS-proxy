@@ -18,10 +18,7 @@ export default class Gis {
             outFields: query.outFields || '*', 
             maxLocations: query.maxLocations || 20
         }
-
-        console.log('Search Path', searchPath);
-        console.log('Location Query', locationQuery);
-
+      
         this._sendRequest(searchPath, locationQuery)
         .end(function(payload) {
             resolve(JSON.parse(payload.body));
