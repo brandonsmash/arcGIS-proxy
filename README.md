@@ -1,6 +1,6 @@
 This api intends to simplify querying arcGIS services. The models in the API represent the various rest services available. For example, there is a geocode model that interacts with the geocode rest service for a variety of location and distance queries. Other services include the feature, map, and geometry services respectively that are mapped to object in the API.
 
-# Documentation
+# ArcGIS Documentation
 
 [Arc GIS documentation](https://developers.arcgis.com/rest/geocode/api-reference/overview-world-geocoding-service.htm)
 
